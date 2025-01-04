@@ -4,7 +4,7 @@ use yap::{IntoTokens, Tokens};
 static SEPS: [char; 5] = [' ', '\t', '\r', '\n', '['];
 
 /// Formats a reference string as markdown.
-pub fn format_ref(str: String) -> String {
+fn format_ref(str: String) -> String {
     if !str.contains("://") {
         format!("[`{}`]", str)
     } else {
