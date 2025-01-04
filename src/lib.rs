@@ -5,7 +5,6 @@ static SEPS: [char; 5] = [' ', '\t', '\r', '\n', '['];
 
 /// Formats a reference string as markdown.
 pub fn format_ref(str: String) -> String {
-    assert!(!str.contains(' '));
     if !str.contains("://") {
         format!("[`{}`]", str)
     } else {
