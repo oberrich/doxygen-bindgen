@@ -1,0 +1,23 @@
+name: "cargo"
+on:
+  workflow_dispatch: 
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+env:
+  CARGO_TERM_COLOR: always
+jobs:
+  cargo:
+    runs-on: windows-2025
+    steps:
+    - name: Install Rust
+      uses: dtolnay/rust-toolchain@nightly
+      with:
+        components: rustfmt
+        
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Run Tests
+      run: cargo test -vv
