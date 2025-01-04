@@ -2,6 +2,11 @@
 name = "doxygen-bindgen"
 version = "0.1.0"
 edition = "2024"
+license = "MIT"
+authors = ["oberrich <oberrich.llvm@proton.me>"]
+repository = "https://github.com/oberrich/doxygen-bindgen"
+homepage = "https://github.com/oberrich/doxygen-bindgen"
+description = "Converts Doxygen comments into Rustdoc markdown"
 
 [dependencies]
 yap = "0.12.0"
