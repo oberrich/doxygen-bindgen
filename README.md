@@ -88,8 +88,6 @@ NTSTATUS Successful or errant status.
 | `returns`, `return`, `result` | ``# Returns\n\n``             |
 | `{`, `}`                      | Not implemented               |
 
-Here’s the updated README with the **Usage** section included and a note about the updated `transform` function that no longer panics:
-
 ### License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
