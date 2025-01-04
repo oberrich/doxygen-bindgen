@@ -58,7 +58,8 @@ Creates a new registry key or opens an existing one, and it associates the key w
 * `KeyHandle` [out]  - A pointer to a handle that receives the key handle.
 * `DesiredAccess` [in]  - The access mask that specifies the desired access rights.
 * `ObjectAttributes` [in]  - A pointer to an OBJECT_ATTRIBUTES structure that specifies the object attributes.
-* `TitleIndex` [in]  - Reserved.\n* `Class` [in, optional]  - A pointer to a UNICODE_STRING structure that specifies the class of the key.
+* `TitleIndex` [in]  - Reserved.
+* `Class` [in, optional]  - A pointer to a UNICODE_STRING structure that specifies the class of the key.
 * `CreateOptions` [in]  - The options to use when creating the key.
 * `TransactionHandle` [in]  - A handle to the transaction.
 * `Disposition` [out, optional]  - A pointer to a variable that receives the disposition value.
