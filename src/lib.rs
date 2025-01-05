@@ -5,10 +5,10 @@ const SEPS: [char; 5] = [' ', '\t', '\r', '\n', '['];
 
 /// Formats a reference string as markdown.
 fn format_ref(str: String) -> String {
-    if !str.contains("://") {
-        format!("[`{}`]", str)
+    if str.contains("://") {
+        format!("[{str}]({str})")
     } else {
-        str
+        format!("[`{str}`]")
     }
 }
 
@@ -101,7 +101,7 @@ mod tests {
     #[test]
     fn with_sections() {
         const S: &str = " The NtDelayExecution routine suspends the current thread until the specified condition is met.\n\n @param Alertable The function returns when either the time-out period has elapsed or when the APC function is called.\n @param DelayInterval The time interval for which execution is to be suspended, in milliseconds.\n - A value of zero causes the thread to relinquish the remainder of its time slice to any other thread that is ready to run.\n - If there are no other threads ready to run, the function returns immediately, and the thread continues execution.\n - A value of INFINITE indicates that the suspension should not time out.\n @return NTSTATUS Successful or errant status. The return value is STATUS_USER_APC when Alertable is TRUE, and the function returned due to one or more I/O completion callback functions.\n @remarks Note that a ready thread is not guaranteed to run immediately. Consequently, the thread will not run until some arbitrary time after the sleep interval elapses,\n based upon the system \"tick\" frequency and the load factor from other processes.\n @see https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-sleepex";
-        const S_: &str = "The NtDelayExecution routine suspends the current thread until the specified condition is met.\n# Arguments\n\n* `Alertable` - The function returns when either the time-out period has elapsed or when the APC function is called.\n* `DelayInterval` - The time interval for which execution is to be suspended, in milliseconds.\n- A value of zero causes the thread to relinquish the remainder of its time slice to any other thread that is ready to run.\n- If there are no other threads ready to run, the function returns immediately, and the thread continues execution.\n- A value of INFINITE indicates that the suspension should not time out.\n# Returns\n\nNTSTATUS Successful or errant status. The return value is STATUS_USER_APC when Alertable is TRUE, and the function returned due to one or more I/O completion callback functions.\n> Note that a ready thread is not guaranteed to run immediately. Consequently, the thread will not run until some arbitrary time after the sleep interval elapses,\nbased upon the system \"tick\" frequency and the load factor from other processes.\n# See also\n\n> https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-sleepex";
+        const S_: &str = "The NtDelayExecution routine suspends the current thread until the specified condition is met.\n# Arguments\n\n* `Alertable` - The function returns when either the time-out period has elapsed or when the APC function is called.\n* `DelayInterval` - The time interval for which execution is to be suspended, in milliseconds.\n- A value of zero causes the thread to relinquish the remainder of its time slice to any other thread that is ready to run.\n- If there are no other threads ready to run, the function returns immediately, and the thread continues execution.\n- A value of INFINITE indicates that the suspension should not time out.\n# Returns\n\nNTSTATUS Successful or errant status. The return value is STATUS_USER_APC when Alertable is TRUE, and the function returned due to one or more I/O completion callback functions.\n> Note that a ready thread is not guaranteed to run immediately. Consequently, the thread will not run until some arbitrary time after the sleep interval elapses,\nbased upon the system \"tick\" frequency and the load factor from other processes.\n# See also\n\n> [https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-sleepex](https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-sleepex)";
         assert_eq!(crate::transform(S).unwrap(), S_);
     }
 
