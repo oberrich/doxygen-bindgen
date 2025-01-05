@@ -1,7 +1,7 @@
 use std::error::Error;
 use yap::{IntoTokens, Tokens};
 
-static SEPS: [char; 5] = [' ', '\t', '\r', '\n', '['];
+const SEPS: [char; 5] = [' ', '\t', '\r', '\n', '['];
 
 /// Formats a reference string as markdown.
 fn format_ref(str: String) -> String {
