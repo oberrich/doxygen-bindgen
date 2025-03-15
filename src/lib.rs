@@ -99,6 +99,8 @@ pub fn transform(str: &str) -> Result<String, Box<dyn Error>> {
 
 #[cfg(test)]
 mod tests {
+    use pretty_assertions::assert_eq;
+
     #[test]
     fn basic() {
         const S: &str = "The FILE_BASIC_INFORMATION structure contains timestamps and basic attributes of a file.\n \\li If you specify a value of zero for any of the XxxTime members, the file system keeps a file's current value for that time.\n \\li If you specify a value of -1 for any of the XxxTime members, time stamp updates are disabled for I/O operations preformed on the file handle.\n\\li If you specify a value of -2 for any of the XxxTime members, time stamp updates are enabled for I/O operations preformed on the file handle.\n\\remarks To set the members of this structure, the caller must have FILE_WRITE_ATTRIBUTES access to the file.";
